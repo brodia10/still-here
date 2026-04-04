@@ -1,0 +1,61 @@
+.about {
+  min-height: 100vh;
+  padding: 8rem 2rem 6rem;
+  max-width: 36rem;
+}
+
+.text {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9rem, 1.2vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 4rem;
+}
+
+.links a {
+  color: var(--text-muted);
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+
+.cardTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.cardDesc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (min-width: 1024px) {
+  .about {
+    padding-left: clamp(2rem, 6vw, 8rem);
+  }
+}

@@ -1,0 +1,30 @@
+.gallery {
+  padding-top: 6rem;
+  padding-bottom: 8rem;
+}
+
+.intro {
+  font-family: var(--font-serif);
+  font-size: clamp(0.875rem, 1.2vw, 1.05rem);
+  font-style: italic;
+  color: var(--text-muted);
+  padding: 0 2rem 4rem;
+  max-width: 40rem;
+  line-height: 1.6;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-image);
+}
+
+@media (min-width: 1024px) {
+  .images {
+    padding: 0 clamp(1rem, 4vw, 6rem);
+  }
+
+  .intro {
+    padding-left: clamp(1rem, 4vw, 6rem);
+  }
+}

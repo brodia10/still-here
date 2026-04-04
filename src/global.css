@@ -1,0 +1,78 @@
+:root {
+  --bg: #080808;
+  --text: #e0e0e0;
+  --text-muted: #888888;
+  --accent: #c17f24;
+  --font-sans: 'Helvetica Neue', -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --transition-page: 450ms;
+  --gap-image: clamp(6rem, 15vh, 12rem);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  text-transform: lowercase;
+  background: var(--bg);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 300ms ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  font-family: inherit;
+  text-transform: lowercase;
+}
+
+::selection {
+  background: rgba(193, 127, 36, 0.3);
+  color: var(--text);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 2px;
+}

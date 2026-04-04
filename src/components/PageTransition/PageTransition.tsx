@@ -1,0 +1,22 @@
+import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+export function PageTransition({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return (
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: 'easeInOut' }}
+    >
+      {children}
+    </motion.main>
+  );
+}
