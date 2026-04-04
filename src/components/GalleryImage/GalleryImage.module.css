@@ -1,5 +1,9 @@
-.wrapper {
+.container {
   width: 100%;
+  display: flex;
+}
+
+.wrapper {
   overflow: hidden;
   opacity: 0;
   transform: translateY(8px);

@@ -1,7 +1,27 @@
 .about {
   min-height: 100vh;
   padding: 8rem 2rem 6rem;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.left {
   max-width: 36rem;
+  flex-shrink: 0;
+}
+
+.right {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.right img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.9;
 }
 
 .text {
@@ -52,6 +72,16 @@
   font-size: 0.75rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .right {
+    max-height: 60vh;
+  }
 }
 
 @media (min-width: 1024px) {

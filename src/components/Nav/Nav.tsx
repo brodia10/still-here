@@ -2,6 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useScrollDirection } from '../../hooks/useScrollDirection';
 import { useMouseIdle } from '../../hooks/useMouseIdle';
+import { useActiveSection } from '../../hooks/useActiveSection';
 import styles from './Nav.module.css';
 
 const routes = [
@@ -18,6 +19,7 @@ export function Nav() {
   const mouseActive = useMouseIdle(2000);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const activeSection = useActiveSection();
 
   useEffect(() => {
     setMenuOpen(false);
@@ -25,6 +27,14 @@ export function Nav() {
 
   const nearTop = scrollY < 100;
   const visible = nearTop || direction === 'up' || mouseActive || menuOpen;
+  const isHome = location.pathname === '/';
+
+  const isRouteActive = (path: string, routeIsActive: boolean) => {
+    if (isHome && activeSection) {
+      return path === activeSection;
+    }
+    return routeIsActive;
+  };
 
   return (
     <>
@@ -37,7 +47,7 @@ export function Nav() {
               <NavLink
                 to={route.path}
                 className={({ isActive }) =>
-                  `${styles.link} ${isActive ? styles.active : ''}`
+                  `${styles.link} ${isRouteActive(route.path, isActive) ? styles.active : ''}`
                 }
                 end={route.path === '/'}
               >
@@ -64,7 +74,7 @@ export function Nav() {
             key={route.path}
             to={route.path}
             className={({ isActive }) =>
-              `${styles.overlayLink} ${isActive ? styles.active : ''}`
+              `${styles.overlayLink} ${isRouteActive(route.path, isActive) ? styles.active : ''}`
             }
             end={route.path === '/'}
           >

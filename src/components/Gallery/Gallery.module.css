@@ -19,6 +19,27 @@
   gap: var(--gap-image);
 }
 
+.breath {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-out;
+}
+
+.breath.breathVisible {
+  opacity: 1;
+}
+
+.breathText {
+  font-family: var(--font-serif);
+  font-size: clamp(0.875rem, 1.2vw, 1.05rem);
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
 @media (min-width: 1024px) {
   .images {
     padding: 0 clamp(1rem, 4vw, 6rem);

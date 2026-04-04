@@ -1,7 +1,13 @@
+export type ImageSize = 'full' | 'large' | 'medium' | 'small';
+export type ImageAlign = 'left' | 'center' | 'right';
+
 export interface GalleryImageData {
   src: string;
   alt: string;
   aspect: [number, number];
+  size?: ImageSize;
+  align?: ImageAlign;
+  breath?: string;
 }
 
 export interface GallerySeries {
@@ -9,84 +15,87 @@ export interface GallerySeries {
   images: GalleryImageData[];
 }
 
-// placeholder entries — replace src strings with real image paths in public/images/
-// aspect ratios approximate the intended framing
-
 export const galleries: Record<string, GallerySeries> = {
   work: {
     images: [
-      // opens with the deer at midnight
-      { src: '', alt: 'deer at midnight, full eye contact, backlit ears, absolute darkness', aspect: [3, 2] },
-      { src: '', alt: 'storm on the street, two light sources at different color temperatures', aspect: [3, 2] },
-      { src: '', alt: 'arched window glowing against black sky', aspect: [2, 3] },
-      { src: '', alt: 'dam in snow, underexposed to midnight', aspect: [3, 2] },
-      { src: '', alt: 'bare branches consuming streetlight', aspect: [2, 3] },
-      { src: '', alt: 'pink clothing on factory floor', aspect: [3, 2] },
-      { src: '', alt: 'open bible on pulpit', aspect: [3, 2] },
-      { src: '', alt: 'cracked pavement as landscape', aspect: [3, 2] },
-      { src: '', alt: 'bokeh lights through dead winter plants', aspect: [2, 3] },
-      { src: '', alt: 'dumpster burning red against amber house', aspect: [3, 2] },
-      { src: '', alt: 'tree shadows spreading across cracked pavement', aspect: [3, 2] },
-      { src: '', alt: 'blurred bible, not document but apparition', aspect: [3, 2] },
-      { src: '', alt: 'white cloth draped over church pew', aspect: [2, 3] },
-      { src: '', alt: 'tiny door in absolute blackness', aspect: [3, 2] },
-      { src: '', alt: 'deer grazing at night', aspect: [3, 2] },
-      { src: '', alt: 'industrial corridor with motion blur', aspect: [3, 2] },
-      { src: '', alt: 'branches raking a facade as shadow painting', aspect: [2, 3] },
-      // closes with amber window in darkness
-      { src: '', alt: 'single amber window glowing alone in absolute darkness', aspect: [3, 2] },
+      // — god is indifferent and the streetlights are beautiful —
+      { src: '/images/god-is-indifferent/deer-cracked-pavement.jpg', alt: 'deer stepping off curb onto cracked pavement, caught in light against total darkness', aspect: [4, 3], size: 'full', breath: 'god is indifferent and the streetlights are beautiful' },
+      { src: '/images/god-is-indifferent/storm-pano.jpg', alt: 'storm on the street, two color temperatures fighting, rain on everything', aspect: [11, 5], size: 'medium' },
+      { src: '/images/god-is-indifferent/deer-grazing.jpg', alt: 'deer grazing at midnight, neighborhood behind, still here while the city sleeps', aspect: [3, 2], size: 'large' },
+      { src: '/images/god-is-indifferent/storm-dark-house.jpg', alt: 'house barely visible through rain and darkness, amber light bottom left', aspect: [4, 3], size: 'medium', align: 'left' },
+      { src: '/images/god-is-indifferent/deer-looking-back.jpg', alt: 'deer looking back, backlit by house windows, the animal aware of you', aspect: [3, 2], size: 'large' },
+
+      // — the world continued without them —
+      { src: '/images/the-world-continued/tiny-door-blackness.jpg', alt: 'tiny door in absolute blackness, a threshold, a possibility, surrounded by void', aspect: [3, 2], size: 'full', breath: 'the world continued without them' },
+      { src: '/images/the-world-continued/dam-snow.jpg', alt: 'dam in snow, afternoon made midnight through underexposure', aspect: [2, 3], size: 'medium', align: 'right' },
+      { src: '/images/the-world-continued/mattress-pillow.jpg', alt: 'mattress and pillow on factory floor, graffiti walls, someone slept here', aspect: [3, 2], size: 'full' },
+      { src: '/images/the-world-continued/floor-wires-cloth.jpg', alt: 'wires and cloth on broken floor, the residue of presence', aspect: [3, 2], size: 'medium', align: 'left' },
+      { src: '/images/the-world-continued/abandoned-through-darkness.jpg', alt: 'abandoned building seen through darkness, light struggling through a strip', aspect: [3, 2], size: 'medium' },
+      { src: '/images/the-world-continued/debris-lot.jpg', alt: 'debris lot, graffiti, bare trees, everything left behind', aspect: [3, 2], size: 'large' },
+
+      // — dear fellow member —
+      { src: '/images/dear-fellow-member/abandoned-church-cross.jpg', alt: 'abandoned church interior, cross glowing in the dark', aspect: [2, 3], size: 'full', breath: 'dear fellow member' },
+      { src: '/images/dear-fellow-member/cathedral-dark.jpg', alt: 'cathedral interior in darkness, faith and absence', aspect: [3, 2], size: 'large' },
+      { src: '/images/dear-fellow-member/church-stained-glass.jpg', alt: 'stained glass in abandoned church, color persisting', aspect: [3, 2], size: 'medium' },
+      { src: '/images/dear-fellow-member/empty-cathedral.jpg', alt: 'empty cathedral, faith asked for and not returned', aspect: [2, 3], size: 'medium', align: 'right' },
+
+      // — what the light chose —
+      { src: '/images/what-the-light-chose/cracked-pavement.jpg', alt: 'cracked pavement as landscape, what the ground remembers', aspect: [2, 3], size: 'medium', align: 'left', breath: 'what the light chose' },
+      { src: '/images/what-the-light-chose/bokeh-lights.jpg', alt: 'bokeh lights dissolving through branches, warmth out of focus', aspect: [2, 3], size: 'small', align: 'right' },
+      { src: '/images/what-the-light-chose/bokeh-night-trees.jpg', alt: 'bokeh through dead winter branches', aspect: [3, 4], size: 'small' },
+
+      // — closing —
+      { src: '/images/god-is-indifferent/deer-disappearing.jpg', alt: 'deer sideways in total darkness, barely visible, disappearing', aspect: [3, 2], size: 'large' },
+      { src: '/images/god-is-indifferent/storm-two-lights.jpg', alt: 'storm on the street, the two lights still fighting', aspect: [11, 5], size: 'medium' },
+      { src: '/images/work/amber-window-glow.jpg', alt: 'single amber window glowing alone in absolute darkness', aspect: [9, 16], size: 'medium' },
     ],
   },
 
   'god-is-indifferent': {
     intro: 'the universe is indifferent. the light is beautiful anyway.',
     images: [
-      { src: '', alt: 'storm on the street, two competing color temperatures', aspect: [3, 2] },
-      { src: '', alt: 'arched window glowing like a halo against black sky', aspect: [2, 3] },
-      { src: '', alt: 'bare branches consuming the streetlight', aspect: [2, 3] },
-      { src: '', alt: 'dumpster burning red against amber house', aspect: [3, 2] },
-      { src: '', alt: 'deer grazing at midnight', aspect: [3, 2] },
-      { src: '', alt: 'deer lying down in darkness', aspect: [3, 2] },
-      { src: '', alt: 'deer disappearing into night', aspect: [3, 2] },
-      { src: '', alt: 'deer looking back', aspect: [3, 2] },
-      { src: '', alt: 'tree shadows spreading across cracked pavement', aspect: [3, 2] },
-      { src: '', alt: 'kodachrome sodium warmth on a midnight street', aspect: [3, 2] },
+      { src: '/images/god-is-indifferent/storm-two-lights.jpg', alt: 'storm on the street, two light sources at different color temperatures fighting each other', aspect: [11, 5], size: 'large' },
+      { src: '/images/god-is-indifferent/deer-cracked-pavement.jpg', alt: 'deer stepping off curb onto cracked pavement, still here', aspect: [4, 3], size: 'full' },
+      { src: '/images/god-is-indifferent/storm-dark-house.jpg', alt: 'house barely visible through rain and darkness', aspect: [4, 3], size: 'medium', align: 'left' },
+      { src: '/images/god-is-indifferent/deer-grazing.jpg', alt: 'deer grazing at midnight, neighborhood behind', aspect: [3, 2], size: 'large' },
+      { src: '/images/god-is-indifferent/storm-pano.jpg', alt: 'storm panoramic, rain catching both lights', aspect: [11, 5], size: 'medium' },
+      { src: '/images/god-is-indifferent/deer-looking-back.jpg', alt: 'deer looking back, backlit by house windows', aspect: [3, 2], size: 'large' },
+      { src: '/images/god-is-indifferent/foggy-streetlights.jpg', alt: 'streetlights in fog, two light sources competing', aspect: [2, 3], size: 'medium', align: 'right' },
+      { src: '/images/god-is-indifferent/deer-disappearing.jpg', alt: 'deer disappearing into total darkness', aspect: [3, 2], size: 'medium' },
+      { src: '/images/god-is-indifferent/rain-streetlight.jpg', alt: 'streetlight in the rain, sodium warmth on a midnight street', aspect: [1, 1], size: 'small', align: 'right' },
     ],
   },
 
   'the-world-continued': {
     intro: 'someone was here. the world continued without them. the evidence remains.',
     images: [
-      { src: '', alt: 'dam in snow, afternoon made midnight through underexposure', aspect: [3, 2] },
-      { src: '', alt: 'industrial corridor with motion blur, light fighting through', aspect: [3, 2] },
-      { src: '', alt: 'mattress and pillow in abandoned space', aspect: [3, 2] },
-      { src: '', alt: 'pink clothing on a factory floor', aspect: [3, 2] },
-      { src: '', alt: 'tiny door in absolute blackness, a threshold surrounded by void', aspect: [3, 2] },
-      { src: '', alt: 'white cloth draped over church pew, shroud or wedding dress', aspect: [2, 3] },
+      { src: '/images/the-world-continued/tiny-door-blackness.jpg', alt: 'tiny door in absolute blackness, a threshold surrounded by void', aspect: [3, 2], size: 'full' },
+      { src: '/images/the-world-continued/dam-snow.jpg', alt: 'dam in snow, afternoon made midnight through underexposure', aspect: [2, 3], size: 'medium', align: 'right' },
+      { src: '/images/the-world-continued/abandoned-through-darkness.jpg', alt: 'abandoned building seen through darkness, light strip at bottom', aspect: [3, 2], size: 'large' },
+      { src: '/images/the-world-continued/mattress-pillow.jpg', alt: 'mattress and pillow on factory floor, graffiti walls, someone slept here', aspect: [3, 2], size: 'full' },
+      { src: '/images/the-world-continued/floor-wires-cloth.jpg', alt: 'wires and cloth on broken floor, the residue of presence', aspect: [3, 2], size: 'medium', align: 'left' },
+      { src: '/images/the-world-continued/debris-lot.jpg', alt: 'debris lot, graffiti, bare trees, everything left behind', aspect: [3, 2], size: 'large' },
     ],
   },
 
   'dear-fellow-member': {
     intro: 'we trust that our faith in you is not misplaced. — the trustee board, st. marks presbyterian church, february 1950.',
     images: [
-      { src: '', alt: 'open bible on the pulpit', aspect: [3, 2] },
-      { src: '', alt: 'red silk flowers still standing after years of abandonment', aspect: [2, 3] },
-      { src: '', alt: 'graffiti laid over the pews', aspect: [3, 2] },
-      { src: '', alt: 'blurred bible, not document but apparition', aspect: [3, 2] },
-      { src: '', alt: 'armchair at the staircase holding its dignity against decay', aspect: [2, 3] },
-      { src: '', alt: 'the letter from february 1950, found on the floor 75 years later', aspect: [3, 4] },
+      { src: '/images/dear-fellow-member/abandoned-church-cross.jpg', alt: 'abandoned church interior with glowing cross', aspect: [2, 3], size: 'full' },
+      { src: '/images/dear-fellow-member/cathedral-dark.jpg', alt: 'cathedral interior in darkness', aspect: [3, 2], size: 'large' },
+      { src: '/images/dear-fellow-member/church-stained-glass.jpg', alt: 'dark church with stained glass windows, color persisting', aspect: [3, 2], size: 'medium' },
+      { src: '/images/dear-fellow-member/empty-cathedral.jpg', alt: 'empty cathedral, faith asked for and not returned', aspect: [2, 3], size: 'medium', align: 'right' },
+      { src: '/images/dear-fellow-member/church-ruins.jpg', alt: 'church ruins, what remains after abandonment', aspect: [3, 2], size: 'large' },
     ],
   },
 
   'what-the-light-chose': {
     intro: 'leave the viewer alone to wonder.',
     images: [
-      { src: '', alt: 'cracked pavement as landscape', aspect: [3, 2] },
-      { src: '', alt: 'branches raking a facade as shadow painting', aspect: [2, 3] },
-      { src: '', alt: 'bokeh lights seen through dead winter plants', aspect: [2, 3] },
-      { src: '', alt: 'recycling bin catching sodium light', aspect: [3, 2] },
-      { src: '', alt: 'single object as witness at ground level', aspect: [3, 2] },
-      { src: '', alt: 'detail in darkness, the thing itself and what it holds', aspect: [3, 2] },
+      { src: '/images/what-the-light-chose/cracked-pavement.jpg', alt: 'cracked pavement as landscape', aspect: [2, 3], size: 'medium', align: 'left' },
+      { src: '/images/what-the-light-chose/bokeh-lights.jpg', alt: 'bokeh lights dissolving, warmth out of focus', aspect: [2, 3], size: 'large' },
+      { src: '/images/what-the-light-chose/bokeh-night-trees.jpg', alt: 'bokeh through dead winter branches', aspect: [3, 4], size: 'medium', align: 'right' },
+      { src: '/images/what-the-light-chose/bokeh-green.jpg', alt: 'green light through plants, what the light chose', aspect: [2, 3], size: 'small' },
     ],
   },
 };

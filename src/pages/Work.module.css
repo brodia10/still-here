@@ -1,0 +1,48 @@
+.opening {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem 6rem;
+}
+
+.heroImage {
+  max-width: 75%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.slash {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(193, 127, 36, 0.4);
+}
+
+@media (max-width: 768px) {
+  .heroImage {
+    max-width: 90%;
+    max-height: 60vh;
+  }
+}

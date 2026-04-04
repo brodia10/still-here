@@ -1,30 +1,52 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Gallery } from '../components/Gallery/Gallery';
+import styles from './Work.module.css';
 
-export function Work() {
+interface WorkProps {
+  onSectionChange?: (section: string | null) => void;
+}
+
+export function Work({ onSectionChange }: WorkProps) {
+  const [showTitle, setShowTitle] = useState(false);
+  const [showHero, setShowHero] = useState(false);
+
+  useEffect(() => {
+    const titleTimer = setTimeout(() => setShowTitle(true), 600);
+    const heroTimer = setTimeout(() => setShowHero(true), 1800);
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(heroTimer);
+    };
+  }, []);
+
   return (
     <>
-      <div style={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'flex-end',
-        padding: '2rem',
-      }}>
-        <h1 style={{
-          fontFamily: 'var(--font-serif)',
-          fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-          fontWeight: 400,
-          letterSpacing: '0.02em',
-          color: 'var(--text-muted)',
-        }}>
+      <div className={styles.opening}>
+        <motion.div
+          className={styles.hero}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showHero ? 1 : 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+        >
+          <img
+            src="/images/god-is-indifferent/deer-cracked-pavement.jpg"
+            alt="deer stepping off curb onto cracked pavement, caught in light against total darkness"
+            className={styles.heroImage}
+          />
+        </motion.div>
+        <motion.h1
+          className={styles.title}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showTitle ? 1 : 0 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+        >
           left behind{' '}
-          <span style={{
-            color: 'var(--accent)',
-            textShadow: '0 0 12px rgba(193, 127, 36, 0.4)',
-          }}>/</span>
+          <span className={styles.slash}>/</span>
           {' '}still here
-        </h1>
+        </motion.h1>
       </div>
-      <Gallery seriesKey="work" />
+      <Gallery seriesKey="work" onSectionChange={onSectionChange} />
     </>
   );
 }

@@ -6,7 +6,7 @@
   --font-sans: 'Helvetica Neue', -apple-system, 'Segoe UI', sans-serif;
   --font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
   --transition-page: 450ms;
-  --gap-image: clamp(6rem, 15vh, 12rem);
+  --gap-image: clamp(16rem, 40vh, 28rem);
 }
 
 *,

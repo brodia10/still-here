@@ -3,6 +3,7 @@ import styles from './About.module.css';
 export function About() {
   return (
     <div className={styles.about}>
+      <div className={styles.left}>
       <p className={styles.text}>
         i photograph what i love, what i fear, what i can't stop looking at. i shoot from inside the moment, never outside it. this project came from personal experience — from knowing both sides of left behind and still here from the inside. tenderness & grit.
       </p>
@@ -36,6 +37,13 @@ export function About() {
             composer. producer. cleveland.
           </p>
         </div>
+      </div>
+      </div>
+      <div className={styles.right}>
+        <img
+          src="/images/about-portrait.jpg"
+          alt="brook rodia"
+        />
       </div>
     </div>
   );
