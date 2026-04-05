@@ -163,29 +163,38 @@
 
 @media (max-width: 480px) {
   .sheet {
-    padding: 2rem 0.25rem 5rem;
+    padding: clamp(4rem, 12vh, 8rem) 0.15rem clamp(4rem, 12vh, 8rem);
+  }
+
+  .paper {
+    padding: 4px 0;
   }
 
   .frames {
-    gap: 4px;
-    padding: 0 4px;
+    gap: 3px;
+    padding: 0 3px;
   }
 
   .rebate {
-    padding: 4px 4px 10px;
+    padding: 3px 3px 8px;
   }
 
   .frameNum {
-    font-size: 0.55rem;
+    font-size: 0.5rem;
+    min-width: 1.4em;
   }
 
-  .frameSub,
-  .secondaryNum,
-  .stockName {
-    font-size: 0.35rem;
+  .frameSub {
+    font-size: 0.3rem;
+    padding-right: 5%;
+  }
+
+  .secondaryNum {
+    font-size: 0.3rem;
+    min-width: 1.4em;
   }
 
   .stockName {
-    display: none;
+    font-size: 0.28rem;
   }
 }
