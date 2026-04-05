@@ -30,7 +30,7 @@ export function Work({ onSectionChange }: WorkProps) {
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
           <img
-            src="/images/work/hero-branches-dark.jpg"
+            src={`${import.meta.env.BASE_URL}images/work/hero-branches-dark.jpg`}
             alt="bare branches catching faint light against total darkness, eyes adjusting"
             className={styles.heroImage}
           />

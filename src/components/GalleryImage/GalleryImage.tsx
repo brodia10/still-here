@@ -31,7 +31,8 @@ export function GalleryImage({ src, alt, aspect, size = 'full', align = 'center'
     triggerOnce: true,
   });
 
-  const imageSrc = src || getPlaceholderSrc(aspect[0] * 100, aspect[1] * 100);
+  const base = import.meta.env.BASE_URL;
+  const imageSrc = src ? `${base}${src.replace(/^\//, '')}` : getPlaceholderSrc(aspect[0] * 100, aspect[1] * 100);
   const aspectRatio = `${aspect[0]} / ${aspect[1]}`;
 
   return (

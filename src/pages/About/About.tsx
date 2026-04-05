@@ -41,7 +41,7 @@ export function About() {
       </div>
       <div className={styles.right}>
         <img
-          src="/images/about-portrait.jpg"
+          src={`${import.meta.env.BASE_URL}images/about-portrait.jpg`}
           alt="brook rodia"
         />
       </div>
