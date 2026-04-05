@@ -45,12 +45,17 @@
   color: var(--accent);
 }
 
+/* hamburger — always accessible on mobile, lives outside nav */
 .hamburger {
   display: none;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 60;
   flex-direction: column;
   gap: 5px;
-  padding: 4px;
-  z-index: 60;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger span {
@@ -73,6 +78,7 @@
   transform: rotate(-45deg) translate(4px, -4px);
 }
 
+/* full-screen overlay menu */
 .overlay {
   position: fixed;
   inset: 0;
@@ -98,6 +104,8 @@
   letter-spacing: 0.05em;
   color: var(--text-muted);
   transition: color 300ms ease;
+  text-align: center;
+  padding: 0.5rem 1rem;
 }
 
 .overlayLink:hover {

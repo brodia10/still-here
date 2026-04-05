@@ -26,3 +26,14 @@
   object-fit: cover;
   display: block;
 }
+
+/* on mobile, scale up smaller images so they're not tiny */
+@media (max-width: 768px) {
+  .container {
+    justify-content: center !important;
+  }
+
+  .wrapper {
+    min-width: 85%;
+  }
+}

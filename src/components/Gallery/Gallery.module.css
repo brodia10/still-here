@@ -24,6 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
   opacity: 0;
   transition: opacity 1.2s ease-out;
 }
@@ -38,6 +39,8 @@
   font-style: italic;
   color: var(--text-muted);
   letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.6;
 }
 
 @media (min-width: 1024px) {
@@ -47,5 +50,15 @@
 
   .intro {
     padding-left: clamp(1rem, 4vw, 6rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .breath {
+    height: 70vh;
+  }
+
+  .gallery {
+    padding-top: 4rem;
   }
 }

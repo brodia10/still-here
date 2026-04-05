@@ -24,6 +24,16 @@ export function Nav() {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  // lock body scroll when overlay is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   const nearTop = scrollY < 100;
   const visible = nearTop || direction === 'up' || mouseActive || menuOpen;
   const isHome = location.pathname === '/';
@@ -37,6 +47,17 @@ export function Nav() {
 
   return (
     <>
+      {/* hamburger lives outside the nav so it's always accessible on mobile */}
+      <button
+        className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
       <nav
         className={`${styles.nav} ${!visible ? styles.hidden : ''} ${!nearTop ? styles.scrolled : ''}`}
       >
@@ -55,16 +76,6 @@ export function Nav() {
             </li>
           ))}
         </ul>
-
-        <button
-          className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </nav>
 
       <div className={`${styles.overlay} ${menuOpen ? styles.open : ''}`}>
@@ -76,6 +87,7 @@ export function Nav() {
               `${styles.overlayLink} ${isRouteActive(route.path, isActive) ? styles.active : ''}`
             }
             end={route.path === '/'}
+            onClick={() => setMenuOpen(false)}
           >
             {route.label}
           </NavLink>
