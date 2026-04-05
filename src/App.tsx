@@ -8,7 +8,6 @@ import { Work } from './pages/Work';
 import { GodIsIndifferent } from './pages/GodIsIndifferent';
 import { TheWorldContinued } from './pages/TheWorldContinued';
 import { DearFellowMember } from './pages/DearFellowMember';
-import { WhatTheLightChose } from './pages/WhatTheLightChose';
 import { About } from './pages/About/About';
 
 export function App() {
@@ -25,7 +24,6 @@ export function App() {
           <Route path="/god-is-indifferent" element={<PageTransition><GodIsIndifferent /></PageTransition>} />
           <Route path="/the-world-continued" element={<PageTransition><TheWorldContinued /></PageTransition>} />
           <Route path="/dear-fellow-member" element={<PageTransition><DearFellowMember /></PageTransition>} />
-          <Route path="/what-the-light-chose" element={<PageTransition><WhatTheLightChose /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         </Routes>
       </AnimatePresence>

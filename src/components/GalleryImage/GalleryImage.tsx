@@ -9,6 +9,7 @@ interface GalleryImageProps {
   aspect: [number, number];
   size?: ImageSize;
   align?: ImageAlign;
+  bleed?: boolean;
 }
 
 const sizeMap: Record<ImageSize, string> = {
@@ -24,7 +25,7 @@ const alignMap: Record<ImageAlign, string> = {
   right: 'flex-end',
 };
 
-export function GalleryImage({ src, alt, aspect, size = 'full', align = 'center' }: GalleryImageProps) {
+export function GalleryImage({ src, alt, aspect, size = 'full', align = 'center', bleed }: GalleryImageProps) {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -35,13 +36,13 @@ export function GalleryImage({ src, alt, aspect, size = 'full', align = 'center'
 
   return (
     <div
-      className={styles.container}
-      style={{ justifyContent: alignMap[align] }}
+      className={`${styles.container} ${bleed ? styles.bleed : ''}`}
+      style={bleed ? undefined : { justifyContent: alignMap[align] }}
     >
       <div
         ref={ref}
         className={`${styles.wrapper} ${inView ? styles.visible : ''}`}
-        style={{ aspectRatio, width: sizeMap[size] }}
+        style={{ aspectRatio, width: bleed ? '100%' : sizeMap[size] }}
       >
         <img
           src={imageSrc}

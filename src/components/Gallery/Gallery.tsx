@@ -32,7 +32,6 @@ const breathToRoute: Record<string, string> = {
   'god is indifferent and the streetlights are beautiful': '/god-is-indifferent',
   'the world continued without them': '/the-world-continued',
   'dear fellow member': '/dear-fellow-member',
-  'what the light chose': '/what-the-light-chose',
 };
 
 export function Gallery({ seriesKey, intro, onSectionChange }: GalleryProps) {
@@ -61,6 +60,7 @@ export function Gallery({ seriesKey, intro, onSectionChange }: GalleryProps) {
               aspect={img.aspect}
               size={img.size}
               align={img.align}
+              bleed={img.bleed}
             />
           </div>
         ))}

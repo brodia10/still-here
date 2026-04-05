@@ -3,6 +3,11 @@
   display: flex;
 }
 
+.bleed {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
 .wrapper {
   overflow: hidden;
   opacity: 0;

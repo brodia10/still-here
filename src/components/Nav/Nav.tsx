@@ -10,7 +10,6 @@ const routes = [
   { path: '/god-is-indifferent', label: 'god is indifferent and the streetlights are beautiful' },
   { path: '/the-world-continued', label: 'the world continued without them' },
   { path: '/dear-fellow-member', label: 'dear fellow member' },
-  { path: '/what-the-light-chose', label: 'what the light chose' },
   { path: '/about', label: 'about' },
 ];
 

@@ -30,8 +30,8 @@ export function Work({ onSectionChange }: WorkProps) {
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
           <img
-            src="/images/god-is-indifferent/deer-cracked-pavement.jpg"
-            alt="deer stepping off curb onto cracked pavement, caught in light against total darkness"
+            src="/images/work/hero-branches-dark.jpg"
+            alt="bare branches catching faint light against total darkness, eyes adjusting"
             className={styles.heroImage}
           />
         </motion.div>
