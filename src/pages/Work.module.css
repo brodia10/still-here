@@ -25,6 +25,13 @@
   display: block;
 }
 
+@media (max-width: 768px) {
+  .heroImage {
+    max-width: 90%;
+    max-height: 60vh;
+  }
+}
+
 .title {
   position: relative;
   z-index: 1;
@@ -40,9 +47,3 @@
   text-shadow: 0 0 12px rgba(193, 127, 36, 0.4);
 }
 
-@media (max-width: 768px) {
-  .heroImage {
-    max-width: 90%;
-    max-height: 60vh;
-  }
-}

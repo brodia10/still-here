@@ -1,5 +1,5 @@
 import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
+import { useEffect, type ReactNode } from 'react';
 import { galleries } from '../../data/galleries';
 import { GalleryImage } from '../GalleryImage/GalleryImage';
 import styles from './Gallery.module.css';
@@ -8,6 +8,7 @@ interface GalleryProps {
   seriesKey: string;
   intro?: string;
   onSectionChange?: (section: string | null) => void;
+  insertAfter?: { index: number; element: ReactNode };
 }
 
 function Breath({ text, onVisible }: { text: string; onVisible?: () => void }) {
@@ -34,7 +35,7 @@ const breathToRoute: Record<string, string> = {
   'dear fellow member': '/dear-fellow-member',
 };
 
-export function Gallery({ seriesKey, intro, onSectionChange }: GalleryProps) {
+export function Gallery({ seriesKey, intro, onSectionChange, insertAfter }: GalleryProps) {
   const series = galleries[seriesKey];
   if (!series) return null;
 
@@ -62,6 +63,7 @@ export function Gallery({ seriesKey, intro, onSectionChange }: GalleryProps) {
               align={img.align}
               bleed={img.bleed}
             />
+            {insertAfter && i === insertAfter.index && insertAfter.element}
           </div>
         ))}
       </div>

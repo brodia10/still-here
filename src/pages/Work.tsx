@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { ContactSheet } from '../components/ContactSheet/ContactSheet';
 import { Gallery } from '../components/Gallery/Gallery';
 import styles from './Work.module.css';
 
@@ -46,7 +47,7 @@ export function Work({ onSectionChange }: WorkProps) {
           {' '}still here
         </motion.h1>
       </div>
-      <Gallery seriesKey="work" onSectionChange={onSectionChange} />
+      <Gallery seriesKey="work" onSectionChange={onSectionChange} insertAfter={{ index: 1, element: <ContactSheet /> }} />
     </>
   );
 }
