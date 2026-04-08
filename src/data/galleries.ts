@@ -23,6 +23,13 @@ export const galleries: Record<string, GallerySeries> = {
 
       // — god is indifferent and the streetlights are beautiful —
       { src: '/images/god-is-indifferent/deer-cracked-pavement.jpg', alt: 'deer stepping off curb onto cracked pavement, caught in light against total darkness', aspect: [4, 3], size: 'full', breath: 'god is indifferent and the streetlights are beautiful' },
+
+      // — the club: warmth surrendered to red —
+      { src: '/images/club/bodies-dissolving-red.jpg', alt: 'bodies dissolving into red light, faces gone, the crowd swallowing everyone', aspect: [3, 2], size: 'full' },
+      { src: '/images/club/floor-hands-red.jpg', alt: 'hands and floor in deep red, the body without a name', aspect: [3, 2], size: 'large' },
+      { src: '/images/club/figure-under-ropes-red.jpg', alt: 'figure under rope lights, red washing out everything, the crowd behind', aspect: [3, 2], size: 'large' },
+      { src: '/images/club/figure-cage-lights-red.jpg', alt: 'figure framed by cage of lights, red and orange, identity dissolving', aspect: [3, 2], size: 'full' },
+
       { src: '/images/god-is-indifferent/storm-pano.jpg', alt: 'storm on the street, two color temperatures fighting, rain on everything', aspect: [11, 5], bleed: true },
       { src: '/images/god-is-indifferent/ghost-car-streetlight.jpg', alt: 'ghost car blurring past streetlight, the world moving while the light stays still', aspect: [3, 2], size: 'large' },
       { src: '/images/god-is-indifferent/ivy-trunk-window.jpg', alt: 'ivy clinging to bark, window glowing warm behind it, tenderness against darkness', aspect: [3, 2], size: 'medium', align: 'right' },
